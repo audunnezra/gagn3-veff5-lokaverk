@@ -57,10 +57,11 @@
           <p class="subtitle has-text-grey">Please login to proceed.</p>
           <div class="box">
             <figure class="avatar">
-              <img src="https://placehold.it/128x128">
+              <img src="/img/icon.png">
             </figure>
             <form action="/login" method="POST">
               {{ csrf_field() }}
+              
               <div class="field">
                 <div class="control">
                   <input name="email" class="input is-large" type="email" placeholder="Your Email" autofocus="">
@@ -72,6 +73,7 @@
                   <input name="password" class="input is-large" type="password" placeholder="Your Password">
                 </div>
               </div>
+
               <div class="field">
                 <label class="checkbox">
                   <input name="remember_me" type="checkbox">
