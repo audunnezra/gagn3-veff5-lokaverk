@@ -21,6 +21,8 @@ class ThreadsController extends Controller
         	'body' => 'required'
     	]);
 
+        // test
+
     	Thread::create([
 		 	'title' => $request->title,
 		 	'body' => $request->body,
