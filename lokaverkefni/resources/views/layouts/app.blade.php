@@ -9,15 +9,19 @@
             .offset-right{
                 margin-right:20px;
             }
+
+            .offset-top{
+                margin-top:20px;
+            }
+
             .whitespace{
                 background-color:orange;
-                opacity:1;
+                opacity:0;
                 color:white;
             }
 
             .body{
                 text-align:center;
-                background-color:purple;
                 color:white;
             }
 
@@ -31,6 +35,10 @@
 
             html, body{
                 height:100%;
+            }
+
+            label{
+                color:black;
             }
 
         </style> 

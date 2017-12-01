@@ -12,10 +12,23 @@ class ThreadsController extends Controller
 
     }
 
-    public function store(){
+    public function store(Request $request){
+
+    	//dd($request->all());
+
     	$this->validate($request, [
-        	'title' => 'required|max:10',
+        	'title' => 'required|min:10',
         	'body' => 'required'
     	]);
+
+    	Thread::create([
+		 	'title' => $request->title,
+		 	'body' => $request->body,
+		 	'user_id' => auth()->id()
+		 ]);
+    }
+
+    public function create(){
+    	return view('threads.create');
     }
 }
