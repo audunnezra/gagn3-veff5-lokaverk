@@ -2,18 +2,23 @@
 
 Auth::routes();
 
+
 // get 1
+Route::get('threads', 'ThreadsController@index');
+
 Route::get('/home', function () {
-    return view('welcome');
+    return redirect('threads');
 });
 
 Route::get('/', function () {
-    return redirect('/home');
+    return redirect('threads');
 });
 
-// post 1
-Route::post('/threads', 'ThreadsController@store');
 // get 2
 Route::get('/create', 'ThreadsController@create');
 
-Route::get('threads', 'ThreadsController@show');
+//get 3
+Route::get('/threads/{id}', 'ThreadsController@show');
+
+// post 1
+Route::post('/threads', 'ThreadsController@store');

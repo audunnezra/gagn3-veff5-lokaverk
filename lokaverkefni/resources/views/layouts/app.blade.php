@@ -6,11 +6,30 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style type="text/css">
 
-            .offset-right{
-                margin-right:20px;
+            .custom-nav-button{
+                all:initial;
+                padding:5px;
+                width: 7em;  height: 2em;
+                background-color:#ef762f;
+                border:2px solid white;
+                border-radius:2px;
+                text-align:center;
+                font-size:20px;
+                font-family:verdana;
+                color:white;
             }
 
-            .offset-top{
+            .custom-nav-button:hover{
+                cursor:pointer;
+                background-color:#ff904f;
+            }
+
+            .nav-offset-right{
+               padding-left:4%;
+               padding-right:4.05%;
+            }
+
+            .nav-offset-top{
                 margin-top:20px;
             }
 
@@ -22,7 +41,7 @@
 
             .body{
                 text-align:center;
-                color:white;
+                color:black;
             }
 
             .full-height{
@@ -31,6 +50,18 @@
 
             .navbar{
                 margin-bottom:0px;
+                background-color:#ef762f;
+                padding-top:2%;
+                padding-bottom:3%;
+            }
+
+            .span-info{
+                font-size:40px;
+                color:red;
+            }
+
+            .thread-title{
+                
             }
 
             html, body{
@@ -39,6 +70,7 @@
 
             label{
                 color:black;
+                font-size:30px;
             }
 
         </style> 
@@ -46,20 +78,23 @@
     <body>
         <div id="app" class="full-height">
             <nav class="navbar navbar-default navbar-static-top">
-                <div class="container-fluid offset-right">
+                <div class="container-fluid nav-offset-right">
                     <div class="nav navbar-nav navbar-left">
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}"><button class="custom-nav-button">All Threads</button></a>
+                    </div>
+                    <div class="nav navbar-nav navbar-left">
+                        <a href="{{ url('/create') }}"><button class="custom-nav-button">New Thread</button></a>
                     </div>
                     @if (Route::has('login'))
                         <div class="nav navbar-nav navbar-right">
                             @auth
                                 <form action="/logout" method="POST">
                                     {{ csrf_field() }}
-                                    <button type="submit">Log Out</button>
+                                    <button type="submit" class="custom-nav-button">Logout</button>
                                 </form>
                             @else
-                                <a href="{{ route('login') }}">Login</a>
-                                <a href="{{ route('register') }}">Register</a>
+                                <a href="{{ route('login') }}"><button class="custom-nav-button">Login</button></a>
+                                <a href="{{ route('register') }}"><button class="custom-nav-button">Register</button></a>
                             @endauth
                         </div>
                     @endif

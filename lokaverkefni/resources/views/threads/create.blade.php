@@ -11,11 +11,15 @@
                     <form method='POST' action='/threads'>
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label>Title: </label>
+                            <span class="span-info span-title-info">
+                                <label>Title: <span class="span-info">*</span></label>
+                            </span>
                             <input type="text" name="title" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Body: </label>
+                            <span class="span-body-info">
+                                <label>Body: <span class="span-info">*</span></label>
+                            </span>
                             <textarea type="text" name="body" class="form-control" rows="8"></textarea>
                         </div>
                         <div class="form-group">

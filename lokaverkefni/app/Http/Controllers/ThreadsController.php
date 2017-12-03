@@ -9,15 +9,25 @@ use Auth;
 class ThreadsController extends Controller
 {
     public function __construct(){
-
+        $this->middleware('auth')->except('show', 'index');
     }
 
-    public function store(Request $request){
+    public function index(Request $request){
+        $threads = Thread::latest()->get();
 
-    	//dd($request->all());
+        return view('threads.index', compact('threads'));
+    }
+
+    public function show($id){
+        $thread = Thread::find($id);
+
+        return view('threads.show', compact('thread'));
+    }
+
+    protected function store(Request $request){
 
     	$this->validate($request, [
-        	'title' => 'required|min:10',
+        	'title' => 'required|min:8|max:255',
         	'body' => 'required'
     	]);
 
@@ -28,9 +38,11 @@ class ThreadsController extends Controller
 		 	'body' => $request->body,
 		 	'user_id' => auth()->id()
 		 ]);
+
+        return redirect('/threads');
     }
 
-    public function create(){
+    protected function create(){
     	return view('threads.create');
     }
 }
