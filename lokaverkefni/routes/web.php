@@ -20,5 +20,8 @@ Route::get('/create', 'ThreadsController@create');
 //get 3
 Route::get('/threads/{id}', 'ThreadsController@show');
 
+//post 2
+Route::post('/threads/{id}/comment', 'CommentsController@store');
+
 // post 1
 Route::post('/threads', 'ThreadsController@store');
