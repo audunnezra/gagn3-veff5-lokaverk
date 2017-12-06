@@ -22,6 +22,7 @@
             .custom-nav-button:hover{
                 cursor:pointer;
                 background-color:#ff904f;
+                text-decoration: none;
             }
 
             .nav-offset-right{
@@ -73,6 +74,9 @@
                 font-size:30px;
             }
 
+            .custom-nav-a:hover {
+                text-decoration: none;
+            }
         </style> 
     </head>
     <body>
@@ -80,10 +84,10 @@
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid nav-offset-right">
                     <div class="nav navbar-nav navbar-left">
-                        <a href="{{ url('/home') }}"><button class="custom-nav-button">All Threads</button></a>
+                        <a href="{{ url('/home') }}" class="custom-nav-a"><button class="custom-nav-button">All Threads</button></a>
                     </div>
                     <div class="nav navbar-nav navbar-left">
-                        <a href="{{ url('/create') }}"><button class="custom-nav-button">New Thread</button></a>
+                        <a href="{{ url('/create') }}" class="custom-nav-a"><button class="custom-nav-button">New Thread</button></a>
                     </div>
                     @if (Route::has('login'))
                         <div class="nav navbar-nav navbar-right">
@@ -93,8 +97,8 @@
                                     <button type="submit" class="custom-nav-button">Logout</button>
                                 </form>
                             @else
-                                <a href="{{ route('login') }}"><button class="custom-nav-button">Login</button></a>
-                                <a href="{{ route('register') }}"><button class="custom-nav-button">Register</button></a>
+                                <a href="{{ route('login') }}" class="custom-nav-a"><button class="custom-nav-button">Login</button></a>
+                                <a href="{{ route('register') }}" class="custom-nav-a"><button class="custom-nav-button">Register</button></a>
                             @endauth
                         </div>
                     @endif
